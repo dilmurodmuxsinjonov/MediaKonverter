@@ -1,38 +1,45 @@
 # MediaKonverter 🎬
 
-Shaffof PNG ketma-ketligini (Sequence) yuqori sifatli va shaffoflikni saqlab qoluvchi **WebM** videoga aylantiruvchi professional dastur.
+A professional tool to convert transparent PNG sequences into high-quality **WebM** videos while fully preserving alpha channel transparency.
 
-## 🌟 Imkoniyatlar
-- **Batch Processing**: Yuzlab PNG fayllarni bir vaqtda qayta ishlash.
-- **Alpha Channel**: Videoda shaffoflikni (transparency) to'liq saqlab qoladi.
-- **Modern UI**: Zamonaviy, silliq va tushunarli foydalanuvchi interfeysi.
-- **Tezkor**: FFmpeg yordamida yuqori tezlikda konvertatsiya qilish.
-- **Sifat Nazorati**: Kadrlar tezligi (FPS) va video sifatini sozlash imkoniyati.
+## 📥 Download
+You can download the ready-to-use Windows installer from the **[Releases](https://github.com/dilmurodmuhsinjanov910-byte/MediaKonverter/releases)** page.
 
-## 🛠 Texnologiyalar
+1. Go to the **Releases** section.
+2. Download `MediaKonverter_Setup.exe`.
+3. Run the installer and follow the instructions.
+
+## 🌟 Features
+- **Batch Processing**: Handle hundreds of PNG files or ZIP archives simultaneously.
+- **Alpha Channel Support**: Maintains full transparency in the output WebM video.
+- **Modern UI**: Sleek, intuitive, and responsive interface featuring a premium Glassmorphism design.
+- **High Performance**: Powered by FFmpeg for rapid and efficient conversion.
+- **Quality Control**: Custom settings for frame rate (FPS) and video quality levels.
+
+## 🛠 Tech Stack
 - **Backend**: Python, Flask
 - **Frontend**: HTML5, CSS3 (Glassmorphism), JavaScript
-- **Core**: FFmpeg
+- **Core Engine**: FFmpeg
 
-## 🚀 Ishga tushirish
+## 🚀 Development Setup
 
-1. **Kutubxonalarni o'rnatish:**
+1. **Install Dependencies:**
    ```bash
    pip install flask
    ```
 
-2. **Dasturni ishga tushirish:**
+2. **Run the Application:**
    ```bash
    python converter/app.py
    ```
 
-3. **Brauzerda ochish:**
-   `http://127.0.0.1:5000` manziliga kiring.
+3. **Access in Browser:**
+   Navigate to `http://127.0.0.1:5000`
 
-## 📁 Loyiha Strukturasi
-- `converter/`: Asosiy Flask dasturi va UI fayllari.
-- `uploads/`: Yuklangan vaqtinchalik fayllar.
-- `output/`: Tayyor bo'lgan WebM fayllar.
+## 📁 Project Structure
+- `converter/`: Main Flask application and UI assets.
+- `uploads/`: Temporary storage for uploaded files.
+- `output/`: Storage for generated WebM videos.
 
-## 📝 Muallif
-[Dilmurod] tomonidan yaratilgan.
+## 📝 Author
+Created by [Dilmurod].
