@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animatsiya Sifatini Solishtirish</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Page 1 -->
+        <section id="page1" class="page active">
+            <div class="content">
+                <h1>Xush kelibsiz</h1>
+                <p>Ushbu demo orqali PNG va WebP animatsiyalari orasidagi farqni ko'rishingiz mumkin.</p>
+                <button onclick="transitionToPage2()">PNG Animatsiyasi (212MB)</button>
+            </div>
+        </section>
+
+        <!-- Page 2 -->
+        <section id="page2" class="page">
+            <div class="content">
+                <h1>2-Sahifa</h1>
+                <p>Siz hozirgina PNG animatsiyasi orqali bu yerga keldingiz.</p>
+                <button onclick="transitionToPage3()">WebP Animatsiyasi (14MB)</button>
+            </div>
+        </section>
+
+        <!-- Page 3 -->
+        <section id="page3" class="page">
+            <div class="content">
+                <h1>3-Sahifa</h1>
+                <p>WebP animatsiyasi PNG ga qaraganda 93% yengilroq.</p>
+                <button onclick="transitionToPage4()">WebM Video (4MB)</button>
+            </div>
+        </section>
+
+        <!-- Page 4 -->
+        <section id="page4" class="page">
+            <div class="content">
+                <h1>Xulosa</h1>
+                <p>WebM eng unumdor format bo'lib chiqdi (faqat 4MB)!</p>
+                <p>U shaffoflikni saqlaydi va yuklash uchun juda qulay.</p>
+                <button onclick="restart()">Boshidan boshlash</button>
+            </div>
+        </section>
+
+        <!-- Animation Overlay -->
+        <div id="animation-container">
+            <canvas id="animation-canvas"></canvas>
+            <video id="animation-video" style="display:none; width:100%; height:100%; object-fit:cover;"></video>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

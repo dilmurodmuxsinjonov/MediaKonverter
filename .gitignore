@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# Flask
+instance/
+.webassets-cache
+
+# Project Specific
+converter/uploads/*
+!converter/uploads/.gitkeep
+converter/output/*
+!converter/output/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Executables
+*.exe
+*.msi
+
+# Media tests
+webp/
+rasimlar/
+loyiha/assets/

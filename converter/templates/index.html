@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaKonverter | PNG → WebM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="10" fill="url(#grad1)"/>
+                        <path d="M10 22V10l12 6-12 6z" fill="white"/>
+                        <defs>
+                            <linearGradient id="grad1" x1="0" y1="0" x2="32" y2="32">
+                                <stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h1>MediaKonverter</h1>
+            </div>
+            <p class="tagline">Professional shaffof video yaratish platformasi</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-container">
+            <!-- Step 1: Upload -->
+            <section id="step-upload" class="step-card active">
+                <div class="card-header">
+                    <span class="step-badge">1-Bosqich</span>
+                    <h2>Fayllarni yuklash</h2>
+                </div>
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-content">
+                        <div class="upload-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                        </div>
+                        <p class="primary-text">PNG ketma-ketligini yoki ZIP faylni tanlang</p>
+                        <p class="secondary-text">Suvratlarni bu yerga tashlang</p>
+                    </div>
+                    <input type="file" id="fileInput" multiple accept=".png,.zip" hidden>
+                </div>
+                <div id="fileInfo" class="file-info-grid" style="display:none">
+                    <div class="glass-stat">
+                        <label>Fayllar</label>
+                        <span id="fileCount">0</span>
+                    </div>
+                    <div class="glass-stat">
+                        <label>Hajm</label>
+                        <span id="totalSize">0 MB</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Settings -->
+            <section id="step-settings" class="step-card" style="display:none">
+                <div class="card-header">
+                    <span class="step-badge">2-Bosqich</span>
+                    <h2>Sozlamalar</h2>
+                </div>
+                <div class="settings-stack">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label>Kadr tezligi (FPS)</label>
+                            <span class="value-tag" id="fpsValue">30</span>
+                        </div>
+                        <input type="range" id="fpsRange" min="12" max="120" value="30" class="modern-slider">
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label>Sifat darajasi</label>
+                        <div class="quality-selector">
+                            <button class="q-btn" data-quality="low">
+                                <span>Past</span>
+                                <small>Tezkor</small>
+                            </button>
+                            <button class="q-btn active" data-quality="medium">
+                                <span>O'rta</span>
+                                <small>Optimal</small>
+                            </button>
+                            <button class="q-btn" data-quality="high">
+                                <span>Yuqori</span>
+                                <small>Sifatli</small>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="duration-badge">
+                    <span>Taxminiy davomiylik: </span>
+                    <strong id="durationPreview">0.0s</strong>
+                </div>
+                <button class="btn-glow-primary" id="startConvert">
+                    <span>Konvertatsiyani boshlash</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="13 17 18 12 13 7"/><line x1="6" y1="17" x2="11" y2="12"/><line x1="6" y1="7" x2="11" y2="12"/>
+                    </svg>
+                </button>
+            </section>
+
+            <!-- Step 3: Progress -->
+            <section id="step-progress" class="step-card" style="display:none">
+                <div class="progress-layout">
+                    <div class="loader-container">
+                        <div class="orbit"></div>
+                        <div class="progress-display">
+                            <span id="progressPercent">0%</span>
+                        </div>
+                    </div>
+                    <div class="status-box">
+                        <h3 id="progressStatus">Tayyorlanmoqda...</h3>
+                        <p>Iltimos, kutib turing, video yaratilmoqda</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 4: Result -->
+            <section id="step-result" class="step-card" style="display:none">
+                <div class="success-header">
+                    <div class="success-icon">✓</div>
+                    <h2>Muvaffaqiyatli yakunlandi!</h2>
+                </div>
+                <div class="results-grid">
+                    <div class="res-card">
+                        <label>Original</label>
+                        <span id="resultInputSize">—</span>
+                    </div>
+                    <div class="res-card highlight">
+                        <label>WebM</label>
+                        <span id="resultOutputSize">—</span>
+                    </div>
+                    <div class="res-card success">
+                        <label>Tejaldi</label>
+                        <span id="resultReduction">—</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a class="btn-glow-primary" id="downloadBtn" href="#">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Yuklab olish
+                    </a>
+                    <button class="btn-outline" id="convertAgain">Yana boshlash</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
