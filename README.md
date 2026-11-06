@@ -3,7 +3,7 @@
 A professional tool to convert transparent PNG sequences into high-quality **WebM** videos while fully preserving alpha channel transparency.
 
 ## 📥 Download
-You can download the ready-to-use Windows installer from the **[Releases](https://github.com/dilmurodmuhsinjanov910-byte/MediaKonverter/releases)** page.
+You can download the ready-to-use Windows installer from the **[Releases](https://github.com/dilmurodmuxsinjonov/MediaKonverter/releases)** page.
 
 1. Go to the **Releases** section.
 2. Download `MediaKonverter_Setup.exe`.
